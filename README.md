@@ -1,12 +1,12 @@
-# FreebaseQA v1.0
+# FreebaseQA v1.1
 
 > `wc *.???`  
-    7677   184435  1424296 `FreebaseQA-dev.tab`  
-    4012    64752   373693 `FreebaseQA-dev.txt`  
-    7655   182992  1412982 `FreebaseQA-eval.tab`  
+    7676   184416  1429963 `FreebaseQA-dev.tab`  
+    4011    64738   373613 `FreebaseQA-dev.txt`  
+    7655   182992  1419695 `FreebaseQA-eval.tab`  
     4023    65533   378217 `FreebaseQA-eval.txt`  
-	39279   944728  7282351 `FreebaseQA-train.tab`  
-	22792   554602  4322851 `QA-partialrelevant.tab`  
+	39279   944728  7316479 `FreebaseQA-train.tab`  
+	22792   554602  4333450 `QA-partialrelevant.tab`  
 
 * `FreebaseQA-train.tab`: the training set of Q/A pairs and their corresponding Freebase IDs and predicates; the tab-separated fields are defined as follows:
 
