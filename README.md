@@ -23,7 +23,7 @@
 
 * `FreebaseQA-eval.tab`: the evaluation set of Q/A pairs and their corresponding Freebase IDs and predicates; the format is the same as `FreebaseQA-train.tab` as above
 
-* `FreebaseQA-dev.txt`: the development set of 4011 Q/A pairs (separated by '|') from 3996 unique questions
+* `FreebaseQA-dev.txt`: the development set of 4011 Q/A pairs (separated by '|') from 3995 unique questions
 
 * `FreebaseQA-eval.txt`: the evaluation set of 4023 Q/A pairs (separated by '|') from 3999 unique questions
 
