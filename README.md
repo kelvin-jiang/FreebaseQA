@@ -1,30 +1,36 @@
-# FreebaseQA v1.1
+# FreebaseQA - v1.0
 
-> `wc *.???`  
-    7676   184416  1429963 `FreebaseQA-dev.tab`  
-    4011    64738   373613 `FreebaseQA-dev.txt`  
-    7655   182992  1419695 `FreebaseQA-eval.tab`  
-    4023    65533   378217 `FreebaseQA-eval.txt`  
-	39279   944728  7316479 `FreebaseQA-train.tab`  
-	22792   554602  4333450 `QA-partialrelevant.tab`  
+This repository contains FreebaseQA, a new dataset for open-domain QA over the Freebase knowledge graph. The question-answer pairs in this dataset are collected from various sources, including the TriviaQA dataset ([Joshi et al., 2017](http://nlp.cs.washington.edu/triviaqa/)) and other trivia websites ([KnowQuiz](http://www.knowquiz.com), [QuizBalls](http://www.quizballs.com), and [QuizZone](https://www.quiz-zone.co.uk)), and are matched agaist Freebase to generate relevant subject-predicate-object triples that were further verified by human annotators. As all questions in FreebaseQA are composed independently for human contestants in various trivia-like competitions, this dataset shows richer linguistic variation and complexity than existing QA datasets, making it a good test-bed for emerging KB-QA systems.
 
-* `FreebaseQA-train.tab`: the training set of Q/A pairs and their corresponding Freebase IDs and predicates; the tab-separated fields are defined as follows:
+If you find this dataset useful, please cite the paper:
+> [1] K. Jiang, D. Wu and H. Jiang, "FreebaseQA: A New Factoid QA Dataset Matching Trivia-Style Question-Answer Pairs with Freebase," _Proc. of North American Chapter of the Association for Computational Linguistics (NAACL)_, June 2019. 
 
-    field 1 - the subject found in the question  
-    field 2 - the freebase name corresponding to the subject  
-    field 3 - the freebase ID corresponding to the subject  
-    field 4 - the matched freebase predicate  
-    field 5 - the secondary predicate for a mediator node (null	otherwise)  
-    field 6 - the freebase mid corresponding to the answer  
-    field 7 - the answer to the question  
-    field 8 - the question  
+## Dataset Files
 
-* `FreebaseQA-dev.tab`: the development set of Q/A pairs and their corresponding Freebase IDs and predicates; the format is the same as `FreebaseQA-train.tab` as above
+This dataset contains 28,348 unique questions that are divided into three subsets: `train` (20,358), `dev` (3,994) and `eval` (3,996), formatted as JSON files: `FreebaseQA-[train|dev|eval].json`.
 
-* `FreebaseQA-eval.tab`: the evaluation set of Q/A pairs and their corresponding Freebase IDs and predicates; the format is the same as `FreebaseQA-train.tab` as above
+Each file is formatted as follows:
 
-* `FreebaseQA-dev.txt`: the development set of 4011 Q/A pairs (separated by '|') from 3995 unique questions
+* "Dataset" : The name of this dataset
+* "Version" : The version of the FreebaseQA dataset
+* "Questions" : The set of unique questions in this dataset
+    * "Question-ID" : The unique ID of each question
+    * "RawQuestion" : The original question collected from data sources
+    * "ProcessedQuestion" : The question processed with some operations such as removal of trailing question mark and decapitalization
+    * "Parses": The semantic parse(s) for the question
+        * "Parse-Id" : The ID of each semantic parse
+        * "PotentialTopicEntityMention": The potential topic entity mention in the question
+        * "TopicEntityName" : The name or alias of the topic entity in the question from Freebase
+        * "TopicEntityMid" : The Freebase MID of the topic entity in the question
+        * "InferentialChain" : The path from the topic entity node to the answer node in Freebase, labelled as a predicate
+        * "Answers" : 
+            * "AnswersMid" : The Freebase MID of the answer
+            * "AnswersName" : The answer string from the original question-answer pair
 
-* `FreebaseQA-eval.txt`: the evaluation set of 4023 Q/A pairs (separated by '|') from 3999 unique questions
+## Evaluation Metrics
 
-* `QA-partialrelevant.tab`: all Q/A pairs and their corresponding Freebase IDs and predicates ONLY partially relevant to the questions; the format is the same as `FreebaseQA-train.tab` as above
+The accuracy is used as the evaluation metric for this dataset, i.e. a question is considered correct only if the predicted answer is exactly the same as one of the given answers.
+
+## Freebase Subset
+
+We have created a subset of Freebase (2.2GB zip), which includes all relevant entities (16M) and triples (182M) to all FreebaseQA questions. The subset can accompany the FreebaseQA dataset in order to evaluate the accuracy of trained models in answering questions. The subset may be downloaded from the following link: [https://www.dropbox.com/sh/a25p7j2ir8gqnvx/AABJvjoI9mbHYj3hyfuxSdGaa?dl=0](https://www.dropbox.com/sh/a25p7j2ir8gqnvx/AABJvjoI9mbHYj3hyfuxSdGaa?dl=0)
