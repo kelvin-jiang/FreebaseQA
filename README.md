@@ -1,4 +1,4 @@
-# FreebaseQA (v1.0)
+# FreebaseQA (v1.0): A Trivia-type QA Dataset over the Freebase Knowledge Graph
 
 This repository contains FreebaseQA, a new dataset for open-domain QA over the Freebase knowledge graph. The question-answer pairs in this dataset are collected from various sources, including the TriviaQA dataset ([Joshi et al., 2017](http://nlp.cs.washington.edu/triviaqa/)) and other trivia websites ([QuizBalls](http://www.quizballs.com), [QuizZone](https://www.quiz-zone.co.uk), [KnowQuiz](http://www.knowquiz.com)), and are matched agaist Freebase to generate relevant subject-predicate-object triples that were further verified by human annotators. As all questions in FreebaseQA are composed independently for human contestants in various trivia-like competitions, this dataset shows richer linguistic variation and complexity than existing QA datasets, making it a good test-bed for emerging KB-QA systems.
 
