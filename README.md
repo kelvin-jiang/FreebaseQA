@@ -5,6 +5,8 @@ This repository contains FreebaseQA, a new data set for open-domain QA over the 
 If you find this data set useful, please cite the paper:
 > [1] K. Jiang, D. Wu and H. Jiang, "FreebaseQA: A New Factoid QA Data Set Matching Trivia-Style Question-Answer Pairs with Freebase," _Proc. of North American Chapter of the Association for Computational Linguistics (NAACL)_, June 2019. 
 
+All data is distributed under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) license.
+
 ## Data Set Files
 
 This data set contains 28,348 unique questions that are divided into three subsets: `train` (20,358), `dev` (3,994) and `eval` (3,996), formatted as JSON files: `FreebaseQA-[train|dev|eval].json`.
@@ -31,7 +33,7 @@ Each file is formatted as follows:
 
 ## Evaluation Metrics
 
-The accuracy is used as the evaluation metric for this data set, i.e. a question is considered correct only if the predicted answer is exactly the same as one of the given answers.
+Accuracy is used as the evaluation metric for this data set, i.e. a question is considered correct only if the predicted answer is exactly the same as one of the given answers.
 
 ## Freebase Extract
 
